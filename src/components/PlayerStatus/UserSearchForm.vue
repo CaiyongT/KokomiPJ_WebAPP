@@ -1,5 +1,9 @@
 <template>
   <a-space direction="vertical">
+    <a-image
+    :width="200"
+    :src="kokomiHorizental"
+    />
     <!-- 自动补全 搜索用户信息 -->
     <a-auto-complete :focus="onSearchAutoComplete" v-model:value="userId" :options="options" style="width: 400px" @search="onSearchAutoComplete"
       @select="onSelect">
@@ -39,7 +43,7 @@
 import { ref, reactive } from 'vue'
 import axios from 'axios'
 import IconCircleFlagsCn from '~icons/circle-flags/cn'
-
+import kokomiHorizental from '@/assets/images/kokomi/kokomi_horizontal_01.jpg'
 // 导入你的本地图片
 import asiaPng from '@/assets/images/wows/region/asia.png'
 import cnPng from '@/assets/images/wows/region/cn.png'//图片的CN不符合尺寸，改为使用图标
