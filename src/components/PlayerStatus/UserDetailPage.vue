@@ -4,7 +4,7 @@
     <!--#region页面第一行，Title栏-->
 
     <a-row>
-    <a-col :span="8">姓名牌区域</a-col>
+    <a-col :span="8"><User-Nameplates></User-Nameplates> </a-col>
     <a-col :span="8" :offset="8">留白等待Maoyu的反馈</a-col>
     </a-row>
 
@@ -13,7 +13,8 @@
     <!--#region页面第二行，详情页签栏---->
     <a-row>
       <a-tabs>
-      <a-tab-pane key="personalIndex" tab="个人主页"> {{userinfo}} </a-tab-pane>
+      <!-- <a-tab-pane key="personalIndex" tab="个人主页"> <Player-Index></Player-Index> </a-tab-pane> -->
+      <a-tab-pane key="personalIndex" tab="个人主页"> {{ userinfo }} </a-tab-pane>
       <a-tab-pane key="dataCenter" tab="数据中心"> 数据中心 </a-tab-pane>
       <a-tab-pane key="shipStatistics" tab="单船数据"> 单船数据 </a-tab-pane>
       <a-tab-pane key="archiveStatistics" tab="成就数据"> 成就数据 </a-tab-pane>
@@ -27,6 +28,8 @@
 
 <script setup>
 import { onMounted,ref } from 'vue';
+import PlayerIndex from './PersonalIndex.vue'
+import UserNameplates from './UserNameplates.vue'
 import axios from 'axios'
 const props = defineProps({
   //传入用户id
@@ -43,7 +46,7 @@ onMounted(() => {
 
    // 例如获取 userId.uid，并发起请求
    const uid = props.userId.uid
- const server = props.userId.server
+   const server = props.userId.server
   axios.get('/api/v1/robot/user/account/', {
     params: {
       region: server,
