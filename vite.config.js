@@ -18,6 +18,9 @@ import Icons from 'unplugin-icons/vite'
 // 引入 unplugin-icons 的解析器，自动解析各图标集合中的图标组件
 import IconsResolver from 'unplugin-icons/resolver'
 
+// 引入Path
+import path from 'path'
+
 // 导出 Vite 配置
 export default defineConfig({
   plugins: [
@@ -48,4 +51,17 @@ export default defineConfig({
       autoInstall: true,
     }),
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src') // 
+    }
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://129.226.90.10:8010',
+        changeOrigin: true,
+      },
+    },
+  },
 })
