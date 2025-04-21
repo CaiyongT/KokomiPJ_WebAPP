@@ -1,0 +1,19 @@
+const constRankData = [{
+    season:"8",
+    rank:'gold',
+    level:'10'
+},
+{
+    season:"10",
+    rank:'silver',
+    level:'8'
+},
+{
+    season:"9",
+    rank:'gobronze',
+    level:'4'
+},{
+    season:"8",
+    rank:'gold',
+    level:'8'
+},]
