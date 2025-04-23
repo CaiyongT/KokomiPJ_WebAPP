@@ -4,7 +4,7 @@
       <div v-if="userinfo?.personalIndex"><Player-Performance :playerPerformance="playerPerformance"></Player-Performance></div>
     </a-col>
     <a-col class="gutter-row" :span="14">
-      <div class="gutter-box"></div>
+      <div class="gutter-box"><Player-Statistics :playerStatistics="playerStatistics"></Player-Statistics></div>
     </a-col>
     <a-col class="gutter-row" :span="12">
       <div class="gutter-box">左下角</div>
@@ -17,6 +17,7 @@
 <script setup>
 import { onMounted, ref,computed  } from 'vue'
 import PlayerPerformance from './PlayerPerformance.vue'
+import PlayerStatistics from './PlayerStatistics.vue'
 // 1. 拿到 props（解构出 userinfo，避免 this）
 const { userinfo } = defineProps({
   userinfo: {
@@ -29,6 +30,12 @@ const { userinfo } = defineProps({
 const playerPerformance = computed(() => {
   return userinfo?.personalIndex?.playerPerformance ?? {}
 })
+const playerStatistics = computed(() => {
+  return userinfo?.personalIndex?.playerStatistics ?? {}
+})
+
+
+
 </script>
 <style scoped>
 .read-the-docs {
