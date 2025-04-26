@@ -12,7 +12,7 @@
 
     <!--#region页面第二行，详情页签栏---->
     <a-row>
-      <a-tabs style="width: 100%;min-height: 800px;">
+      <a-tabs style="width: 100%;">
         <a-tab-pane key="personalIndex" tab="个人主页"> <Personal-Index :userinfo = "userinfo"></Personal-Index> </a-tab-pane>
         <a-tab-pane key="dataCenter" tab="数据中心"> 数据中心 </a-tab-pane>
         <a-tab-pane key="shipStatistics" tab="单船数据"> 单船数据 </a-tab-pane>
@@ -27,7 +27,7 @@
 
 <script setup>
 import { onMounted, ref } from 'vue';
-import PersonalIndex from './PersonalIndex.vue'
+import PersonalIndex from './UserDetailPage/PersonalIndex.vue'
 import axios from 'axios'
 const props = defineProps({
   //传入用户id

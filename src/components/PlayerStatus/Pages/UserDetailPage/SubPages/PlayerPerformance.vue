@@ -2,7 +2,7 @@
     <a-row :gutter="16" justify="start">
       <!-- 标题 -->
       <a-col :span="24" style="text-align: left;">
-        <h4>个人水平</h4>
+        <h4 style="margin: 5px 0;">个人水平</h4>
       </a-col>
       <!-- 动态渲染 -->
       <a-col
@@ -83,6 +83,7 @@
     margin-bottom: 10px;
   }
   .performance-item {
+   
     position: relative;
     width: 100%;
   }
