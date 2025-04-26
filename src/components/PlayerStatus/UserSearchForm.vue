@@ -37,6 +37,58 @@
       </template>
     </a-segmented>
   </a-space>
+  <a-row gutter="16">
+    <!-- 1. 卡片展示第一种背景效果 -->
+    <a-col :span="8">
+      <a-card :style="cardStyle(1)">
+        <h3 class="card-title">等级 A</h3>
+      </a-card>
+    </a-col>
+
+    <!-- 2. 卡片展示第二种背景效果 -->
+    <a-col :span="8">
+      <a-card :style="cardStyle(2)">
+        <h3 class="card-title">等级 B</h3>
+      </a-card>
+    </a-col>
+
+    <!-- 3. 卡片展示第三种背景效果 -->
+    <a-col :span="8">
+      <a-card :style="cardStyle(3)">
+        <h3 class="card-title">等级 C</h3>
+      </a-card>
+    </a-col>
+    <a-col :span="8">
+      <a-card :style="cardStyle(4)">
+        <h3 class="card-title">等级 C</h3>
+      </a-card>
+    </a-col>
+    <a-col :span="8">
+      <a-card :style="cardStyle(5)">
+        <h3 class="card-title">等级 C</h3>
+      </a-card>
+    </a-col>
+    <a-col :span="8">
+      <a-card :style="cardStyle(6)">
+        <h3 class="card-title">等级 C</h3>
+      </a-card>
+    </a-col>
+    <a-col :span="8">
+      <a-card :style="cardStyle(7)">
+        <h3 class="card-title">等级 C</h3>
+      </a-card>
+    </a-col>
+    <a-col :span="8">
+      <a-card :style="cardStyle(8)">
+        <h3 class="card-title">等级 C</h3>
+      </a-card>
+    </a-col>
+    <a-col :span="8">
+      <a-card :style="cardStyle(9)">
+        <h3 class="card-title">等级 C</h3>
+      </a-card>
+    </a-col>
+  </a-row>
 </template>
 
 <script setup>
@@ -140,6 +192,32 @@ async function onSearchAutoComplete(query) {
 function onSelect(selectedValue, option) {
   emits('onSearch', { name: option.label,uid:option.value,server:server })
 }
+
+//#region
+// 定义背景色渐变和动画
+const cardStyle = (level) => {
+  const gradients = [
+    'linear-gradient(45deg, rgba(128, 128, 128, 0.5), rgba(128, 128, 128, 1))', // 水平未知
+    'linear-gradient(45deg, rgba(205, 51, 51, 0.5), rgba(205, 51, 51, 1))',   // 还需努力
+    'linear-gradient(45deg, rgba(254, 121, 3, 0.5), rgba(254, 121, 3, 1))',     // 低于平均
+    'linear-gradient(45deg, rgba(255, 193, 7, 0.5), rgba(255, 193, 7, 1))',     // 平均水平
+    'linear-gradient(45deg, rgba(68, 179, 0, 0.5), rgba(68, 179, 0, 1))',       // 好
+    'linear-gradient(45deg, rgba(49, 128, 0, 0.5), rgba(49, 128, 0, 1))',       // 很好
+    'linear-gradient(45deg, rgba(52, 186, 211, 0.5), rgba(52, 186, 211, 1))',   // 非常好
+    'linear-gradient(45deg, rgba(121, 61, 182, 0.5), rgba(121, 61, 182, 1))',   // 大佬平均
+    'linear-gradient(45deg, rgba(88, 43, 128, 0.5), rgba(88, 43, 128, 1))'      // 神佬平均
+  ];
+
+  return {
+    background: gradients[level - 1],   // 每个等级对应不同的渐变背景
+    animation: 'gradientAnimation 3s ease infinite', // 渐变动画
+    height: '200px',
+    borderRadius: '10px',
+    position: 'relative',
+  };
+};
+
+//#endregion
 </script>
 
 <style>
@@ -147,5 +225,28 @@ function onSelect(selectedValue, option) {
 .avatar-cn .ant-avatar-img {
   object-fit: cover;
   object-position: 30% 20%;
+}
+
+.card-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+/* 动画渐变 */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 </style>
