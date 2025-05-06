@@ -205,7 +205,7 @@ const currentLevelColor = computed(function () {
   const rgb = currentLevel.value.color;
   return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
 });
-
+    
 
 //#endregion
 </script>
