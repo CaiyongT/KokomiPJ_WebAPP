@@ -1,0 +1,60 @@
+//PlayerRecord类的单个记录
+const records = {
+    record_type:"max_dmg/max_xp/max_frag/max_plane_kill/max_spotdmg/max_potential",//使用/分开了该字段的值
+    record_data:"114514",//实际记录最大值数据,
+    record_ship_tire:"10",//记录最大值船支等级
+    record_ship_type:"cv/bb/dd/ss/ca",//记录最大值船类型
+    record_ship_id:"1919810",//记录最大值船id
+    record_ship_name:"克里斯托弗哥伦布",//记录最大值中文名
+}
+
+const playerRecord = [
+    {
+        record_type:"max_dmg",//最高伤害
+        record_data:"114514",//实际数字
+        record_ship_tire:"Ⅹ",//船只等级
+        record_ship_type:"bb",//船只类型
+        record_ship_id:"1919810",//记录最大值船id
+        record_ship_name:"克里斯托弗哥伦布",//船名
+    },
+    {
+        record_type:"max_xp",//最高经验
+        record_data:"83079",//实际数字
+        record_ship_tire:"Ⅹ",//船只等级
+        record_ship_type:"bb",//船只类型
+        record_ship_id:"1919810",//记录最大值船id
+        record_ship_name:"克里斯托弗哥伦布",//船名
+    },
+    {
+        record_type:"max_frag",//最高击杀
+        record_data:"10",//实际数字
+        record_ship_tire:"Ⅹ",//船只等级
+        record_ship_type:"bb",//船只类型
+        record_ship_id:"1919810",//记录最大值船id
+        record_ship_name:"克里斯托弗哥伦布",//船名
+    },
+    {
+        record_type:"max_plane_kill",//最高经验
+        record_data:"1450",//实际数字
+        record_ship_tire:"Ⅹ",//船只等级
+        record_ship_type:"bb",//船只类型
+        record_ship_id:"1919810",//记录最大值船id
+        record_ship_name:"克里斯托弗哥伦布",//船名
+    },
+    {
+        record_type:"max_spotdmg",//最高侦察伤害
+        record_data:"1190",//实际数字
+        record_ship_tire:"Ⅹ",//船只等级
+        record_ship_type:"bb",//船只类型
+        record_ship_id:"1919810",//记录最大值船id
+        record_ship_name:"克里斯托弗哥伦布",//船名
+    },
+    {
+        record_type:"max_potential",//最高潜在伤害
+        record_data:"460510508",//实际数字
+        record_ship_tire:"Ⅹ",//船只等级
+        record_ship_type:"bb",//船只类型
+        record_ship_id:"1919810",//记录最大值船id
+        record_ship_name:"克里斯托弗哥伦布",//船名
+    },
+];

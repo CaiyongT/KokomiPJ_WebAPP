@@ -37,6 +37,7 @@
       </template>
     </a-segmented>
   </a-space>
+  
 </template>
 
 <script setup>
@@ -140,6 +141,11 @@ async function onSearchAutoComplete(query) {
 function onSelect(selectedValue, option) {
   emits('onSearch', { name: option.label,uid:option.value,server:server })
 }
+
+//#region
+
+
+//#endregion
 </script>
 
 <style>
@@ -147,5 +153,28 @@ function onSelect(selectedValue, option) {
 .avatar-cn .ant-avatar-img {
   object-fit: cover;
   object-position: 30% 20%;
+}
+
+.card-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+/* 动画渐变 */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 </style>
