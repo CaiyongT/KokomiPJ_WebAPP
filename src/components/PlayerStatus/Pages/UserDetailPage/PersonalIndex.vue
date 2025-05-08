@@ -10,7 +10,7 @@
       <div >左下角</div>
     </a-col>
     <a-col class="personalIndexChild" :span="12">
-      <div >右下角</div>
+      <div v-if="userinfo?.personalIndex"><Player-Record :playerRecord="playerRecord"></Player-Record></div>
     </a-col>
   </a-row>
 </template>
@@ -18,6 +18,7 @@
 import { onMounted, ref,computed  } from 'vue'
 import PlayerPerformance from './SubPages/PlayerPerformance.vue'
 import PlayerStatistics from './SubPages/PlayerStatistics.vue'
+import PlayerRecord from './SubPages/PlayerRecord.vue'
 // 1. 拿到 props（解构出 userinfo，避免 this）
 const { userinfo } = defineProps({
   userinfo: {
@@ -32,6 +33,9 @@ const playerPerformance = computed(() => {
 })
 const playerStatistics = computed(() => {
   return userinfo?.personalIndex?.playerStatistics ?? {}
+})
+const playerRecord = computed(() => {
+  return userinfo?.personalIndex?.playerRecord ?? {}
 })
 
 
