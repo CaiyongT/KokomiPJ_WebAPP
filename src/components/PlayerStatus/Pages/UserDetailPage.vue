@@ -4,8 +4,8 @@
     <!--#region页面第一行，Title栏-->
 
     <a-row>
-      <a-col :span="8">姓名牌区域</a-col>
-      <a-col :span="8" :offset="8"></a-col>
+      <a-col :span="12"><User-Nameplates v-if="userinfo.header" :header="userinfo.header"></User-Nameplates></a-col>
+      <a-col :span="4" :offset="4"></a-col>
     </a-row>
 
     <!--#endregion-->
@@ -28,6 +28,7 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import PersonalIndex from './UserDetailPage/PersonalIndex.vue'
+import UserNameplates from './UserDetailPage/SubPages/UserNameplates.vue';
 import axios from 'axios'
 const props = defineProps({
   //传入用户id
