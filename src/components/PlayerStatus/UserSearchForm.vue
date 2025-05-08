@@ -7,7 +7,7 @@
     <!-- 自动补全 搜索用户信息 -->
     <a-auto-complete :focus="onSearchAutoComplete" v-model:value="userId" :options="options" style="width: 400px" @search="onSearchAutoComplete"
       @select="onSelect">
-      <a-input-search size="large" placeholder="请输入用户昵称" enter-button />
+      <a-input-search size="large" placeholder="请输入用户昵称"  @search="onSearchAutoComplete"  enter-button  />
     </a-auto-complete>
 
     <!-- 分段选择器 (a-segmented),选择服务器 -->
@@ -43,6 +43,7 @@
 <script setup>
 import { ref, reactive } from 'vue'
 import axios from 'axios'
+import debounce from 'lodash.debounce'
 import IconCircleFlagsCn from '~icons/circle-flags/cn'
 import kokomiHorizental from '@/assets/images/kokomi/kokomi_horizontal_01.jpg'
 // 导入你的本地图片
@@ -115,7 +116,7 @@ const userId = ref('')
 const options = ref([])
 
 /** 当输入变化时，发请求更新 options */
-async function onSearchAutoComplete(query) {
+async function doSearch(query) {
   if (!query || query.length < 2) {
     options.value = []
     return
@@ -136,7 +137,8 @@ async function onSearchAutoComplete(query) {
     options.value = []
   }
 }
-
+// 用 debounce 包装，300ms 防抖
+const onSearchAutoComplete = debounce(doSearch, 300)
 /** 当选中自动补全某项 */
 function onSelect(selectedValue, option) {
   emits('onSearch', { name: option.label,uid:option.value,server:server })
